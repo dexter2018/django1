@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<br><br><br><br>
+<div class="alert alert-success" style="text-align:center">
+<h1>任老师的自动建库工具</h1></div>
+{#{{ error }}接收后台返回的错误信息封装在ul，li标签里面：#}
+    {{ error }}
+    <form action="/applydb/" method="POST"  class="form-horizontal">
+        {% bootstrap_form form layout='horizontal'%}
+        {% csrf_token %}
+
+        <div class="alert alert-success" style="text-align:center">
+            <input type="submit" value="漫长旅途的开始" />
+        </div>
+        {{ text }}
+    </form>
+</body>
+</html>
+{% endblock content %}
